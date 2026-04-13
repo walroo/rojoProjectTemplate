@@ -1,0 +1,166 @@
+{
+  "emitLegacyScripts": false,
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Source": {
+        "$className": "Folder",
+        "Features": {
+          "$className": "Folder",
+          "App": {
+            "$className": "Folder",
+            "root.story": {
+              "$path": "src/features/app/root.story.luau"
+            },
+            "RootUI": {
+              "$path": "src/features/app/RootUI.luau"
+            },
+            "UI": {
+              "$className": "Folder",
+              "Screens": {
+                "$className": "Folder",
+                "HUD": {
+                  "$path": "src/features/app/ui/screens/HUD.luau"
+                },
+                "Menu": {
+                  "$path": "src/features/app/ui/screens/Menu.luau"
+                }
+              }
+            }
+          },
+          "Template": {
+            "$className": "Folder",
+            "UI": {
+              "$className": "Folder",
+              "Screens": {
+                "$className": "Folder",
+                "TemplateMenu": {
+                  "$path": "src/features/template/ui/screens/TemplateMenu.luau"
+                }
+              }
+            }
+          }
+        },
+        "Core": {
+          "$className": "Folder",
+          "Services": {
+            "$className": "Folder",
+            "DataService": {
+              "$className": "Folder",
+              "DataServiceClient": {
+                "$path": "src/core/services/DataService/DataServiceClient.luau"
+              }
+            },
+            "EventService": {
+              "$className": "Folder",
+              "EventServiceClient": {
+                "$path": "src/core/services/EventService/EventServiceClient.luau"
+              },
+              "EventServiceTypes": {
+                "$path": "src/core/services/EventService/EventServiceTypes.luau"
+              },
+              "EventServiceUtil": {
+                "$path": "src/core/services/EventService/EventServiceUtil.luau"
+              }
+            },
+            "RuntimeService": {
+              "$className": "Folder",
+              "RuntimeServiceClient": {
+                "$path": "src/core/services/RuntimeService/RuntimeServiceClient.luau"
+              },
+              "RuntimeServiceTypes": {
+                "$path": "src/core/services/RuntimeService/RuntimeServiceTypes.luau"
+              }
+            }
+          },
+          "UI": {
+            "$className": "Folder",
+            "Hooks": {
+              "$className": "Folder",
+              "formatNumber": {
+                "$path": "src/core/ui/hooks/formatNumber.luau"
+              },
+              "formatTime": {
+                "$path": "src/core/ui/hooks/formatTime.luau"
+              }
+            },
+            "Primitives": {
+              "$className": "Folder",
+              "BaseButton": {
+                "$path": "src/core/ui/primitives/BaseButton.luau"
+              },
+              "ImageButton": {
+                "$path": "src/core/ui/primitives/ImageButton.luau"
+              },
+              "TextButton": {
+                "$path": "src/core/ui/primitives/TextButton.luau"
+              }
+            },
+            "Theme": {
+              "$path": "src/core/ui/Theme.luau"
+            }
+          }
+        },
+        "Game": {
+          "$className": "Folder",
+          "Items": {
+            "$className": "Folder",
+            "DataTemplate": {
+              "$path": "src/game/items/DataTemplate.luau"
+            }
+          }
+        },
+        "StartUp": {
+          "$className": "Folder",
+          "MountUI": {
+            "$path": "src/startup/MountUI.luau"
+          },
+          "Client": {
+            "$path": "src/startup/Client.client.luau"
+          }
+        }
+      },
+      "Packages": {
+        "$path": "Packages"
+      }
+    },
+    "ServerScriptService": {
+      "Features": {
+        "$className": "Folder"
+      },
+      "Core": {
+        "$className": "Folder",
+        "Services": {
+          "$className": "Folder",
+          "DataService": {
+            "$className": "Folder",
+            "DataServiceServer": {
+              "$path": "src/core/services/DataService/DataServiceServer.luau"
+            }
+          },
+          "EventService": {
+            "$className": "Folder",
+            "EventServiceServer": {
+              "$path": "src/core/services/EventService/EventServiceServer.luau"
+            }
+          },
+          "RuntimeService": {
+            "$className": "Folder",
+            "RuntimeServiceServer": {
+              "$path": "src/core/services/RuntimeService/RuntimeServiceServer.luau"
+            }
+          }
+        }
+      },
+      "Game": {
+        "$className": "Folder"
+      },
+      "StartUp": {
+        "$className": "Folder",
+        "Server": {
+          "$path": "src/startup/Server.server.luau"
+        }
+      }
+    }
+  }
+}
