@@ -12,7 +12,7 @@ yarn-error.log*
 Thumbs.db
 
 # VS Code
-.vscode/
+# .vscode/
 
 # Build / generated output (IMPORTANT for your gen system)
 dist/
