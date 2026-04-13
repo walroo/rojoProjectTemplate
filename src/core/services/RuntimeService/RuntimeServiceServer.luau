@@ -12,7 +12,7 @@ local PRIORITY_SCORE = {
 }
 
 local RuntimeServiceServer = {}
-RuntimeServiceServer.subscritions = {} :: Types.SubscriptionArray
+RuntimeServiceServer.subscriptions = {} :: Types.SubscriptionArray
 
 function RuntimeServiceServer:init()
 	RunService.Heartbeat:Connect(function(deltaTime)
@@ -27,19 +27,19 @@ function RuntimeServiceServer:subscribe(id: Types.Id, callback: Types.Callback, 
 
 	self:unsubscribe(id)
 
-	table.insert(self.subscritions, {
+	table.insert(self.subscriptions, {
 		id = id,
 		score = score,
 		callback = callback,
 	})
 
-	table.sort(self.subscritions, function(a, b)
+	table.sort(self.subscriptions, function(a, b)
 		return a.score < b.score
 	end)
 end
 
 function RuntimeServiceServer:unsubscribe(id: Types.Id)
-	for index, subscription in self.subscritions do
+	for index, subscription in self.subscriptions do
 		if subscription.id == id then
 			table.remove(self.subscriptions, index)
 			break

@@ -12,18 +12,18 @@ local PRIORITY_SCORE = {
 }
 
 local RuntimeServiceClient = {}
-RuntimeServiceClient.updateSubscritions = {} :: Types.SubscriptionArray
-RuntimeServiceClient.renderSubscritions = {} :: Types.SubscriptionArray
+RuntimeServiceClient.updateSubscriptions = {} :: Types.SubscriptionArray
+RuntimeServiceClient.renderSubscriptions = {} :: Types.SubscriptionArray
 
 function RuntimeServiceClient:init()
 	RunService.Heartbeat:Connect(function(deltaTime)
-		for _, subscription in self.updateSubscritions do
+		for _, subscription in self.updateSubscriptions do
 			task.spawn(subscription.callback, deltaTime)
 		end
 	end)
 
 	RunService.RenderStepped:Connect(function(deltaTime)
-		for _, subscription in self.renderSubscritions do
+		for _, subscription in self.renderSubscriptions do
 			subscription.callback(deltaTime)
 		end
 	end)
@@ -38,9 +38,9 @@ function RuntimeServiceClient:subscribe(
 	local array: Types.SubscriptionArray
 	do
 		if pipeline == "Render" then
-			array = self.renderSubscritions
+			array = self.renderSubscriptions
 		else
-			array = self.updateSubscritions
+			array = self.updateSubscriptions
 		end
 	end
 
@@ -60,9 +60,15 @@ function RuntimeServiceClient:subscribe(
 end
 
 function RuntimeServiceClient:unsubscribe(id: Types.Id)
-	for index, subscription in self.subscritions do
+	for index, subscription in self.updateSubscriptions do
 		if subscription.id == id then
-			table.remove(self.subscriptions, index)
+			table.remove(self.updateSubscriptions, index)
+			break
+		end
+	end
+	for index, subscription in self.renderSubscriptions do
+		if subscription.id == id then
+			table.remove(self.renderSubscriptions, index)
 			break
 		end
 	end
