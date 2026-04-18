@@ -33,8 +33,6 @@ local function initFolder(folder: Folder)
 		end
 
 		local module = child:FindFirstChild(name .. "Client")
-
-		print(folder.Name, module)
 		if module and module:IsA("ModuleScript") then
 			task.spawn(init, module)
 		end
