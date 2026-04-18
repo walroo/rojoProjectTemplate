@@ -3,7 +3,7 @@ local ServerScriptService = game:GetService("ServerScriptService")
 local services = ServerScriptService.Core.Services
 local features = ServerScriptService.Features
 
-local function load(module: ModuleScript)
+local function init(module: ModuleScript)
 	local success, result = pcall(function()
 		local requiredModule = require(module)
 
@@ -18,18 +18,25 @@ local function load(module: ModuleScript)
 	end
 end
 
-local function loadFolder(folder: Folder)
+local function initFolder(folder: Folder)
 	for _, child in folder:GetChildren() do
 		if not child:IsA("Folder") then
 			continue
 		end
 
-		local module = child:FindFirstChild(child.Name .. "Server")
+		local name = child.Name
+		if not name:find("Service") then
+			name = name .. "Service"
+		end
+
+		local module = child:FindFirstChild(name .. "Server")
+
+		print(folder.Name, module)
 		if module and module:IsA("ModuleScript") then
-			task.spawn(load, module)
+			task.spawn(init, module)
 		end
 	end
 end
 
-loadFolder(services)
-loadFolder(features)
+initFolder(services)
+initFolder(features)
